@@ -13,7 +13,7 @@ void stage1(char input[50], int var)
     else if(input[var] == '2' || input[var] == '5' || input[var] == '8')
         stage3(input, var+1);
     else if(input[var] == '\0')
-        printf("Valid String\n");
+        printf("Divisible by 3\n");
 }
 
 void stage2(char input[50], int var)
@@ -25,7 +25,7 @@ void stage2(char input[50], int var)
     else if(input[var] == '2' || input[var] == '5' || input[var] == '8')
         stage1(input, var+1);
     else if(input[var] == '\0')
-        printf("Invalid String\n");
+        printf("Not Divisible by 3\n");
 }
 
 void stage3(char input[50], int var)
@@ -37,7 +37,7 @@ void stage3(char input[50], int var)
     else if(input[var] == '2' || input[var] == '5' || input[var] == '8')
         stage2(input, var+1);
     else if(input[var] == '\0')
-        printf("invalid String\n");
+        printf("Not Divisible by 3\n");
 }
 
 void main()
