@@ -1,5 +1,5 @@
 %%
-[$_a-zA-Z][_a-zA-Z0-9]* {printf("TRUE");}
+[$_a-zA-Z][$_a-zA-Z0-9]* {printf("TRUE");}
 (.)* {printf("FALSE");}
 %%
 
