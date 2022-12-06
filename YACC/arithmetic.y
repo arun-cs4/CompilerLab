@@ -11,5 +11,5 @@ int main(){
     return yyparse();
 }
 int yyerror(char *s){
-    printf("Error\n");
+    printf("INVALID\n");
 }
