@@ -1,6 +1,6 @@
 %{
-    int lcount = 0;
-    int wcount = 0;
+    int lcount = 1;
+    int wcount = 1;
     int ccount = 0;
 %}
 %%
