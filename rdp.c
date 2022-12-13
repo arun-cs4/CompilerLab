@@ -9,6 +9,7 @@
 
 #include<stdio.h>
 #include<string.h>
+#include<ctype.h>
 
 void E(char input[100]);
 void EPrime(char input[100]);
@@ -69,7 +70,7 @@ void F(char input[100])
             var++;
         }
     }
-    else if (input[var] == 'a')
+    else if (isalnum(input[var]))
     {
         var++;
     }
