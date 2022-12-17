@@ -1,6 +1,6 @@
 %%
-"/*"(.)*"*/"    {printf(yytext);printf("\n");}
-\/\/(.)*[\n]  {printf(yytext);printf("\n");}
+"/*"(.*"\n"*)*"*/"    {printf(yytext);printf("\n");}
+"//".*[\n]  {printf(yytext);printf("\n");}
 (.) {fprintf(yyout,"%s",yytext);}
 %%
 int yywrap(void){}
