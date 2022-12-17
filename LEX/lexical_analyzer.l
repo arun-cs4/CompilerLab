@@ -1,5 +1,7 @@
 %%
-"if"|"else"|"while"|"int"|"float"|"char"	{printf("Keyword %s \n",yytext);}
+(#include)[ ]*(<).*(>)[\n]	{printf("Header file %s \n", yytext);}
+"if"|"else"|"while"|"int"|"float"	{printf("Keyword %s \n",yytext);}
+["](.)*["]	{printf("String Literal %s \n", yytext);}
 [$_a-zA-Z][$_a-zA-Z0-9]*	{printf("Identifier %s \n",yytext);}
 ">="|"<="|"=="|"="|"+"|"-"|"*"|"/"	{printf("Operator %s \n",yytext);}
 [0-9]*"."[0-9]+ {printf("Float Literal %s \n",yytext);}
