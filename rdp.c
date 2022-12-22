@@ -1,8 +1,8 @@
 /*
     E –> T E’ 
-    E’ –> + T E’ | e 
+    E’ –> + T E’ |- T E' | e 
     T –> F T’ 
-    T’ –> * F T’ | e 
+    T’ –> * F T’ | / F T' | e 
     F –> ( E ) | id
 
 */
@@ -11,68 +11,95 @@
 #include<string.h>
 #include<ctype.h>
 
-void E(char input[100]);
-void EPrime(char input[100]);
-void T(char input[100]);
-void TPrime(char input[100]);
-void F(char input[100]);
+int E(char input[100]);
+int EPrime(char input[100]);
+int T(char input[100]);
+int TPrime(char input[100]);
+int F(char input[100]);
 
 int var = 0;
 
-void E(char input[100])
+int E(char input[100])
 {
-    T(input);
-    EPrime(input);
+    if (T(input) == 1)
+        if (EPrime(input) == 1)
+            return 1;
+        else
+            return 0;
+    else
+        return 0;
 }
 
-void EPrime(char input[100])
+int EPrime(char input[100])
 {
-    if (input[var] == '+')
+    if (input[var] == '+' || input[var] == '-')
     {
         var++;
-        T(input);
-        EPrime(input);
+        if (T(input) == 1)
+            if (EPrime(input) == 1)
+                return 1;
+            else
+                return 0;
+        else
+            return 0;
     }
     else
     {
-        return;
+        return 0;
     }
+
 }
 
-void T(char input[100])
+int T(char input[100])
 {
-    F(input);
-    TPrime(input);
+    if (F(input) == 1)
+        if(TPrime(input) == 1)
+            return 1;
+        else
+            return 0;
+    else
+        return 0;
 }
 
-void TPrime(char input[100])
+int TPrime(char input[100])
 {
-    if (input[var] == '*')
+    if (input[var] == '*' || input[var] == '/')
     {
         var++;
-        F(input);
-        TPrime(input);
+        if (F(input) == 1)
+            if (TPrime(input) == 1)
+                return 1;
+            else
+                return 0;
+        else
+            return 0;
     }
     else
     {
-        return;
+        return 0;
     }
 }
 
-void F(char input[100])
+int F(char input[100])
 {
     if (input[var] == '(')
     {
         var++;
-        E(input);
-        if (input[var] == ')')
-        {
-            var++;
+        if (E(input) == 1)
+        {   
+            if (input[var] == ')')
+            {
+                var++;
+            }
         }
     }
     else if (isalnum(input[var]))
     {
         var++;
+    }
+    else
+    {
+        return 0;
     }
 }
 
