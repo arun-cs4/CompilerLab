@@ -45,7 +45,7 @@ int EPrime(char input[100])
     }
     else
     {
-        return 0;
+        return 1;
     }
 
 }
@@ -76,7 +76,7 @@ int TPrime(char input[100])
     }
     else
     {
-        return 0;
+        return 1;
     }
 }
 
@@ -93,10 +93,17 @@ int F(char input[100])
             }
         }
     }
-    else if (isalnum(input[var]))
+    else if (isalpha(input[var]))
     {
         var++;
+        return 1;
     }
+    else if(isdigit(input[var]) == 1)
+    {
+		while(isdigit(input[var]))
+			var++;
+		return 1;	
+	}
     else
     {
         return 0;
