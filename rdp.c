@@ -98,7 +98,7 @@ int F(char input[100])
         var++;
         return 1;
     }
-    else if(isdigit(input[var]) == 1)
+    else if(isdigit(input[var]))
     {
 		while(isdigit(input[var]))
 			var++;
