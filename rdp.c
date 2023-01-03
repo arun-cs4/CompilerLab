@@ -21,8 +21,8 @@ int var = 0;
 
 int E(char input[100])
 {
-    if (T(input) == 1)
-        if (EPrime(input) == 1)
+    if (T(input))
+        if (EPrime(input))
             return 1;
         else
             return 0;
@@ -35,8 +35,8 @@ int EPrime(char input[100])
     if (input[var] == '+' || input[var] == '-')
     {
         var++;
-        if (T(input) == 1)
-            if (EPrime(input) == 1)
+        if (T(input))
+            if (EPrime(input))
                 return 1;
             else
                 return 0;
@@ -52,8 +52,8 @@ int EPrime(char input[100])
 
 int T(char input[100])
 {
-    if (F(input) == 1)
-        if(TPrime(input) == 1)
+    if (F(input))
+        if(TPrime(input))
             return 1;
         else
             return 0;
@@ -66,8 +66,8 @@ int TPrime(char input[100])
     if (input[var] == '*' || input[var] == '/')
     {
         var++;
-        if (F(input) == 1)
-            if (TPrime(input) == 1)
+        if (F(input))
+            if (TPrime(input))
                 return 1;
             else
                 return 0;
@@ -85,7 +85,7 @@ int F(char input[100])
     if (input[var] == '(')
     {
         var++;
-        if (E(input) == 1)
+        if (E(input))
         {   
             if (input[var] == ')')
             {
